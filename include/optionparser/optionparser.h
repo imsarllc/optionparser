@@ -871,6 +871,13 @@ struct Arg
 		else
 			return ARG_IGNORE;
 	}
+	static option::ArgStatus Required(const option::Option &option, bool)
+	{
+		if (option.arg != 0)
+			return option::ARG_OK;
+
+		return option::ARG_ILLEGAL;
+	}
 };
 
 /**
